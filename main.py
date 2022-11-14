@@ -56,17 +56,14 @@ def handle_message(event):
 
     #列→行、どちらも0から
     que = df.iloc[qnum,1] 
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=que))
     c = "----------"
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=c))
     ans = df.iloc[qnum,2]
+
+    tex = que + c + ans
+
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=ans))
+        TextSendMessage(text=tex))
 
 
 if __name__ == "__main__":
